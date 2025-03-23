@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loc san pham</title>
+</head>
+<body>
+
+  <select id="danhmuc">
+    <option value="">-- Lua chon danh muc --</option>
+    <option value="Do an">Do an</option>
+    <option value="Nuoc">Nuoc</option>
+    <option value="Dung cu">Dung cu</option>
+  </select>
+  <button onclick="loc()">Loc</button>
+
+  <ul id="hienthi"></ul>
+
+  <script>
+    let dish = [
+      { name: 'Rau sach', category: 'Do an' },
+      { name: 'Thit lon', category: 'Do an' },
+      { name: 'Pepsi khong calo', category: 'Nuoc' },
+      { name: 'Cocacola', category: 'Nuoc' },
+      { name: 'Co le', category: 'Dung cu' },
+      { name: 'Tuy vit', category: 'Dung cu' }
+    ];
+
+    function hienThi(mang) {
+      let ul = document.getElementById("hienthi");
+      ul.innerHTML = "";
+      for (let i = 0; i < mang.length; i++) {
+        let li = document.createElement("li");
+        li.innerHTML = "<b>Ten do an:</b> " + mang[i].name + " - <b>Danh muc:</b> " + mang[i].category;
+        ul.appendChild(li);
+      }
+    }
+
+    function loc() {
+      let dm = document.getElementById("danhmuc").value;
+      let ketqua = [];
+      for (let i = 0; i < dish.length; i++) {
+        if (dm == "" || dish[i].category == dm) {
+          ketqua.push(dish[i]);
+        }
+      }
+      hienThi(ketqua);
+    }
+
+    hienThi(dish);
+  </script>
+
+</body>
+</html>

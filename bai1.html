@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Toggle with Font Awesome</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .input-container {
+      position: relative;
+      width: 300px;
+      margin: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      font-size: 18px;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="input-container">
+    <input type="password" id="passwordInput" placeholder="Enter your password">
+    <i class="fa-solid fa-eye toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+  </div>
+
+  <script>
+    function togglePassword() {
+      let input = document.getElementById("passwordInput");
+      let icon = document.getElementById("eyeIcon");
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
+  </script>
+
+</body>
+</html>

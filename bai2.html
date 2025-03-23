@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Counter</title>
+</head>
+<body>
+
+  <textarea id="myText" rows="4" cols="50"></textarea>
+  <p id="result">0 ký tự</p>
+  <button onclick="countCharacters()">kiểm tra</button>
+
+  <script>
+    function countCharacters() {
+      let text = document.getElementById("myText").value;
+      let count = text.length;
+      document.getElementById("result").innerText = count + " ký tự";
+    }
+  </script>
+
+</body>
+</html>
